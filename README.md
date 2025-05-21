@@ -109,4 +109,4 @@ git push origin feature/AmazingFeature
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://opensource.org/licenses/MIT) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
