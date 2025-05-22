@@ -392,6 +392,7 @@ a.anchor {
 #projectnumber {
     font-family: inherit;
     font-size: 60%;
+    padding-right: 10px;
 }
 
 #projectbrief {
