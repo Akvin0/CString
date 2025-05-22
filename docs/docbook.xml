@@ -1,0 +1,1870 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cstr_8h" xml:lang="en-US">
+<title>include/cstr.h File Reference</title>
+<indexterm><primary>include/cstr.h</primary></indexterm>
+<para>
+
+<para>Thread-safe dynamic string implementation for C. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &lt;Windows.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?></programlisting>Include dependency graph for cstr.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="cstr_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_c_string">CString</link></para>
+
+<para>Thread-safe dynamic string container. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_cstr_8h_1ae67e5a4b08eab9b89d2d89ccb4316554">CSTR_H</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>char * <link linkend="_cstr_8h_1ab15a5efe4a0ba6486d243c3b0750c0ad">cstr_strdup</link> (_In_ const char *str)</para>
+
+<para>Duplicate null-terminated C string. </para>
+</listitem>
+            <listitem><para>wchar_t * <link linkend="_cstr_8h_1a6bdfe2b2dc5cbf68ae01b0cf995b1260">cstr_wcsdup</link> (_In_ const wchar_t *str)</para>
+
+<para>Duplicate null-terminated wide string. </para>
+</listitem>
+            <listitem><para>wchar_t * <link linkend="_cstr_8h_1a4c24ac59077696e0207a4b397a3f47cb">cstr_chars2wchars</link> (_In_ const char *str, _In_ size_t cp)</para>
+
+<para>Convert multibyte string to wide character string. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a280c81072083cdfffb3a1c9f88710277">cstr_create</link> (_Inout_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Initialize a new empty <link linkend="_struct_c_string">CString</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a5bfe725f385ff2a7aa3c825ac038ff63">cstr_create_from_cstr</link> (_Inout_ <link linkend="_struct_c_string">CString</link> *obj, _In_ <link linkend="_struct_c_string">CString</link> *obj2)</para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> copy from another <link linkend="_struct_c_string">CString</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a1931260675a1dd0478f1f6174274311d">cstr_create_from_chars</link> (_Inout_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const char *data)</para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from null-terminated C string. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1adb390f645f5d8dd4969b0fe524bf9be1">cstr_create_from_wchars</link> (_Inout_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const wchar_t *data)</para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from wide character string. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1ac8530936721d905d0dec35191fd9c640">cstr_create_from_buffer</link> (_Inout_ <link linkend="_struct_c_string">CString</link> *obj, _In_ uint8_t *buffer, _In_ size_t size)</para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from binary buffer. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1ae7c631e68405064a3672c70015f9f971">cstr_destroy</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Destroy <link linkend="_struct_c_string">CString</link> and release resources. </para>
+</listitem>
+            <listitem><para>void <link linkend="_cstr_8h_1a31b64babfcff555f58c17713e3b91829">cstr_lock</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Acquire exclusive access. </para>
+</listitem>
+            <listitem><para>void <link linkend="_cstr_8h_1a9b2635827c1dbc41bb3f56afba5f52b8">cstr_unlock</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Release exclusive access. </para>
+</listitem>
+            <listitem><para>boolean <link linkend="_cstr_8h_1a29f68bdbe7ee0b735e7a66b76a7efaf3">cstr_at</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ size_t index, _Inout_ char *chr)</para>
+
+<para>Get character at specific index. </para>
+</listitem>
+            <listitem><para>char <link linkend="_cstr_8h_1adf30e94e38c47f2301b6cdc5feadea8f">cstr_get</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ size_t index)</para>
+
+<para>Direct character access (unsynchronized) </para>
+</listitem>
+            <listitem><para>char <link linkend="_cstr_8h_1ab057700c8fec1ae61bc27890b377aac8">cstr_front</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Get first character. </para>
+</listitem>
+            <listitem><para>char <link linkend="_cstr_8h_1afca01c5fbbf74bdde11bb9c7626528ad">cstr_back</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Get last character. </para>
+</listitem>
+            <listitem><para>char * <link linkend="_cstr_8h_1ad87d4a55d6c5f123b6878cb7c119b81e">cstr_data</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Get raw character buffer. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_cstr_8h_1a6931eeaee3c12b51a5e00152859a2b3d">cstr_length</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Get current string length. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_cstr_8h_1a6f2808a0f4841db647dd23e517df31a4">cstr_capacity</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Get allocated buffer capacity. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a5327a06ccf6085d4a44dbb1c5034b9ff">cstr_empty</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Check if string is empty. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a603f9501de51fab10c93116f20992431">cstr_resize</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ size_t size)</para>
+
+<para>Resize internal buffer. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1aa8f1f21d34dc8ec950ada616d8a2775f">cstr_shrink_to_fit</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Minimize buffer to fit current contents. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a4cd55e289c491663bc0f11bdeede3f02">cstr_clear</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Clear string contents. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1ae96b1f1008f1cecbba6b033536cc8252">cstr_push_back_char</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ char chr)</para>
+
+<para>Append single ASCII character. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1af37d56f8b717289741cfc22f33f34f38">cstr_push_back_wchar</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ wchar_t chr)</para>
+
+<para>Append wide character. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1aacd1be547392c8fee02535d0fa33672e">cstr_pop_back</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Remove last character. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a664a76ee05a17e7a0ddc5ad224124ec6">cstr_append_cstr</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ <link linkend="_struct_c_string">CString</link> *obj2)</para>
+
+<para>Append <link linkend="_struct_c_string">CString</link> contents. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a8df0bdd8ce645645e2d1b7a3038291a1">cstr_append_chars</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const char *data)</para>
+
+<para>Append C string. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a151201a91e8a86636e8008dbc4a07019">cstr_append_wchars</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const wchar_t *data)</para>
+
+<para>Append wide string. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1afaf872d064289877d08e06ec976a5200">cstr_substring</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _Inout_ <link linkend="_struct_c_string">CString</link> *dest, _In_ size_t start, _In_ size_t length)</para>
+
+<para>Extract substring. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1ae83f73f2b7601e4884534a3ef0d521cc">cstr_erase</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ size_t index, _In_ size_t size)</para>
+
+<para>Remove characters. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a47a213402babde686adae3df5d41bc8c">cstr_insert</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ size_t index, _In_ char chr)</para>
+
+<para>Insert character. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a87d55a69f207f98bdec62eb93a353bd6">cstr_swap</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ <link linkend="_struct_c_string">CString</link> *obj2)</para>
+
+<para>Swap contents between two CStrings. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_cstr_8h_1ab7731b617fb1bd50a71dbd3abbca74bc">cstr_find_cstr</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ <link linkend="_struct_c_string">CString</link> *obj2)</para>
+
+<para>Find substring (<link linkend="_struct_c_string">CString</link>) </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_cstr_8h_1ac2f2738fb786f4127537efa6795495ea">cstr_find_chars</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const char *data)</para>
+
+<para>Find substring (C string) </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_cstr_8h_1aa3a2304d8697c2c155f6978e7e7b2f80">cstr_find_wchars</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _In_ const wchar_t *data)</para>
+
+<para>Find substring (wide string) </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a7f57e922204757c8ed5bc15a58a484cd">cstr_to_upper</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Convert to uppercase. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a317048239ee0c5973c514663333709f7">cstr_to_lower</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Convert to lowercase. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1ac596ebf8cd8a18b6ef37afb7a697ddbd">cstr_trim</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj)</para>
+
+<para>Trim whitespace from both ends. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a095a6ae515f7b09a74e7949348acd629">cstr_tokenize</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _Inout_ <link linkend="_struct_c_string">CString</link> *token, _In_ const char *delimiters, _Inout_ size_t *start_pos)</para>
+
+<para>Extract token using delimiters. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_cstr_8h_1a7cc988ea3636cff3c49dbe5338a34a91">cstr_tokenize_ex</link> (_In_ <link linkend="_struct_c_string">CString</link> *obj, _Inout_ <link linkend="_struct_c_string">CString</link> *token, _In_ const char *delimiters, _In_ const char *zone_pairs, _In_ const char *escape_chars, _Inout_ size_t *start_pos)</para>
+
+<para>Advanced tokenization with zones/escaping. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>static const size_t <link linkend="_cstr_8h_1a806f153ea99a469ab7b8bf260df0ca8e">invalid</link> = (size_t)-1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Thread-safe dynamic string implementation for C. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_cstr_8h_1ae67e5a4b08eab9b89d2d89ccb4316554"/><section>
+    <title>CSTR_H</title>
+<indexterm><primary>CSTR_H</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>CSTR_H</secondary></indexterm>
+<para><computeroutput>#define CSTR_H</computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_cstr_8h_1a8df0bdd8ce645645e2d1b7a3038291a1"/><section>
+    <title>cstr_append_chars()</title>
+<indexterm><primary>cstr_append_chars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_append_chars</secondary></indexterm>
+<para><computeroutput>bool cstr_append_chars (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const char * data)</computeroutput></para><para>
+
+<para>Append C string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Null-terminated source string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a664a76ee05a17e7a0ddc5ad224124ec6"/><section>
+    <title>cstr_append_cstr()</title>
+<indexterm><primary>cstr_append_cstr</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_append_cstr</secondary></indexterm>
+<para><computeroutput>bool cstr_append_cstr (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ <link linkend="_struct_c_string">CString</link> * obj2)</computeroutput></para><para>
+
+<para>Append <link linkend="_struct_c_string">CString</link> contents. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>obj2</entry><entry>
+<para>Source <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a151201a91e8a86636e8008dbc4a07019"/><section>
+    <title>cstr_append_wchars()</title>
+<indexterm><primary>cstr_append_wchars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_append_wchars</secondary></indexterm>
+<para><computeroutput>bool cstr_append_wchars (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const wchar_t * data)</computeroutput></para><para>
+
+<para>Append wide string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Null-terminated wide string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Converts using system code page </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a29f68bdbe7ee0b735e7a66b76a7efaf3"/><section>
+    <title>cstr_at()</title>
+<indexterm><primary>cstr_at</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_at</secondary></indexterm>
+<para><computeroutput>boolean cstr_at (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ size_t index, _Inout_ char * chr)</computeroutput></para><para>
+
+<para>Get character at specific index. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>index</entry><entry>
+<para>Character position (0-based) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>chr</entry><entry>
+<para>Output character </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if index valid, false otherwise </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Thread-safe version with bounds checking </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1afca01c5fbbf74bdde11bb9c7626528ad"/><section>
+    <title>cstr_back()</title>
+<indexterm><primary>cstr_back</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_back</secondary></indexterm>
+<para><computeroutput>char cstr_back (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Get last character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Last character or 0 if empty </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a6f2808a0f4841db647dd23e517df31a4"/><section>
+    <title>cstr_capacity()</title>
+<indexterm><primary>cstr_capacity</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_capacity</secondary></indexterm>
+<para><computeroutput>size_t cstr_capacity (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Get allocated buffer capacity. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Capacity in bytes or CSTR_INVALID </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a4c24ac59077696e0207a4b397a3f47cb"/><section>
+    <title>cstr_chars2wchars()</title>
+<indexterm><primary>cstr_chars2wchars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_chars2wchars</secondary></indexterm>
+<para><computeroutput>wchar_t * cstr_chars2wchars (_In_ const char * str, _In_ size_t cp)</computeroutput></para><para>
+
+<para>Convert multibyte string to wide character string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>Null-terminated source multibyte string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>cp</entry><entry>
+<para>Character Page for convertion </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>New allocated wide string or NULL on failure </para>
+</formalpara>
+<warning><title>Warning</title>
+
+<para>Caller must free result with free() </para>
+</warning>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a4cd55e289c491663bc0f11bdeede3f02"/><section>
+    <title>cstr_clear()</title>
+<indexterm><primary>cstr_clear</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_clear</secondary></indexterm>
+<para><computeroutput>bool cstr_clear (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Clear string contents. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Securely erases buffer and resets length </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a280c81072083cdfffb3a1c9f88710277"/><section>
+    <title>cstr_create()</title>
+<indexterm><primary>cstr_create</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_create</secondary></indexterm>
+<para><computeroutput>bool cstr_create (_Inout_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Initialize a new empty <link linkend="_struct_c_string">CString</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Pointer to <link linkend="_struct_c_string">CString</link> object to initialize </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Creates empty string with capacity 1 </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ac8530936721d905d0dec35191fd9c640"/><section>
+    <title>cstr_create_from_buffer()</title>
+<indexterm><primary>cstr_create_from_buffer</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_create_from_buffer</secondary></indexterm>
+<para><computeroutput>bool cstr_create_from_buffer (_Inout_ <link linkend="_struct_c_string">CString</link> * obj, _In_ uint8_t * buffer, _In_ size_t size)</computeroutput></para><para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from binary buffer. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>buffer</entry><entry>
+<para>Source binary data </para>
+</entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry>
+<para>Number of bytes to copy </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Adds null-terminator after buffer contents </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a1931260675a1dd0478f1f6174274311d"/><section>
+    <title>cstr_create_from_chars()</title>
+<indexterm><primary>cstr_create_from_chars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_create_from_chars</secondary></indexterm>
+<para><computeroutput>bool cstr_create_from_chars (_Inout_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const char * data)</computeroutput></para><para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from null-terminated C string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Source C string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a5bfe725f385ff2a7aa3c825ac038ff63"/><section>
+    <title>cstr_create_from_cstr()</title>
+<indexterm><primary>cstr_create_from_cstr</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_create_from_cstr</secondary></indexterm>
+<para><computeroutput>bool cstr_create_from_cstr (_Inout_ <link linkend="_struct_c_string">CString</link> * obj, _In_ <link linkend="_struct_c_string">CString</link> * obj2)</computeroutput></para><para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> copy from another <link linkend="_struct_c_string">CString</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>obj2</entry><entry>
+<para>Source <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1adb390f645f5d8dd4969b0fe524bf9be1"/><section>
+    <title>cstr_create_from_wchars()</title>
+<indexterm><primary>cstr_create_from_wchars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_create_from_wchars</secondary></indexterm>
+<para><computeroutput>bool cstr_create_from_wchars (_Inout_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const wchar_t * data)</computeroutput></para><para>
+
+<para>Create <link linkend="_struct_c_string">CString</link> from wide character string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Source wide string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on conversion/allocation failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Uses WideCharToMultiByte with ANSI code page </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ad87d4a55d6c5f123b6878cb7c119b81e"/><section>
+    <title>cstr_data()</title>
+<indexterm><primary>cstr_data</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_data</secondary></indexterm>
+<para><computeroutput>char * cstr_data (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Get raw character buffer. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer to internal buffer </para>
+</formalpara>
+<warning><title>Warning</title>
+
+<para>Buffer valid until next modifying operation </para>
+</warning>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ae7c631e68405064a3672c70015f9f971"/><section>
+    <title>cstr_destroy()</title>
+<indexterm><primary>cstr_destroy</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_destroy</secondary></indexterm>
+<para><computeroutput>bool cstr_destroy (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Destroy <link linkend="_struct_c_string">CString</link> and release resources. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> to destroy </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false for invalid object </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Securely erases memory before freeing </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a5327a06ccf6085d4a44dbb1c5034b9ff"/><section>
+    <title>cstr_empty()</title>
+<indexterm><primary>cstr_empty</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_empty</secondary></indexterm>
+<para><computeroutput>bool cstr_empty (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Check if string is empty. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if empty, false otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ae83f73f2b7601e4884534a3ef0d521cc"/><section>
+    <title>cstr_erase()</title>
+<indexterm><primary>cstr_erase</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_erase</secondary></indexterm>
+<para><computeroutput>bool cstr_erase (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ size_t index, _In_ size_t size)</computeroutput></para><para>
+
+<para>Remove characters. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>index</entry><entry>
+<para>Starting position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry>
+<para>Number of characters to remove </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ac2f2738fb786f4127537efa6795495ea"/><section>
+    <title>cstr_find_chars()</title>
+<indexterm><primary>cstr_find_chars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_find_chars</secondary></indexterm>
+<para><computeroutput>size_t cstr_find_chars (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const char * data)</computeroutput></para><para>
+
+<para>Find substring (C string) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> to search </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Null-terminated substring </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Starting index or CSTR_INVALID </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ab7731b617fb1bd50a71dbd3abbca74bc"/><section>
+    <title>cstr_find_cstr()</title>
+<indexterm><primary>cstr_find_cstr</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_find_cstr</secondary></indexterm>
+<para><computeroutput>size_t cstr_find_cstr (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ <link linkend="_struct_c_string">CString</link> * obj2)</computeroutput></para><para>
+
+<para>Find substring (<link linkend="_struct_c_string">CString</link>) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> to search </para>
+</entry>
+                            </row>
+                            <row>
+<entry>obj2</entry><entry>
+<para>Substring to find </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Starting index or CSTR_INVALID </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1aa3a2304d8697c2c155f6978e7e7b2f80"/><section>
+    <title>cstr_find_wchars()</title>
+<indexterm><primary>cstr_find_wchars</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_find_wchars</secondary></indexterm>
+<para><computeroutput>size_t cstr_find_wchars (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ const wchar_t * data)</computeroutput></para><para>
+
+<para>Find substring (wide string) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> to search </para>
+</entry>
+                            </row>
+                            <row>
+<entry>data</entry><entry>
+<para>Null-terminated wide substring </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Starting index or CSTR_INVALID </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Converts using system code page </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ab057700c8fec1ae61bc27890b377aac8"/><section>
+    <title>cstr_front()</title>
+<indexterm><primary>cstr_front</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_front</secondary></indexterm>
+<para><computeroutput>char cstr_front (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Get first character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>First character or 0 if empty </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1adf30e94e38c47f2301b6cdc5feadea8f"/><section>
+    <title>cstr_get()</title>
+<indexterm><primary>cstr_get</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_get</secondary></indexterm>
+<para><computeroutput>char cstr_get (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ size_t index)</computeroutput></para><para>
+
+<para>Direct character access (unsynchronized) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>index</entry><entry>
+<para>Character position </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Character or 0 for invalid index </para>
+</formalpara>
+<warning><title>Warning</title>
+
+<para>Not thread-safe - use between lock/unlock calls </para>
+</warning>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a47a213402babde686adae3df5d41bc8c"/><section>
+    <title>cstr_insert()</title>
+<indexterm><primary>cstr_insert</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_insert</secondary></indexterm>
+<para><computeroutput>bool cstr_insert (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ size_t index, _In_ char chr)</computeroutput></para><para>
+
+<para>Insert character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>index</entry><entry>
+<para>Insertion position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>chr</entry><entry>
+<para>Character to insert </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a6931eeaee3c12b51a5e00152859a2b3d"/><section>
+    <title>cstr_length()</title>
+<indexterm><primary>cstr_length</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_length</secondary></indexterm>
+<para><computeroutput>size_t cstr_length (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Get current string length. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Length in bytes or CSTR_INVALID </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a31b64babfcff555f58c17713e3b91829"/><section>
+    <title>cstr_lock()</title>
+<indexterm><primary>cstr_lock</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_lock</secondary></indexterm>
+<para><computeroutput>void cstr_lock (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Acquire exclusive access. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_cstr_8h_1aacd1be547392c8fee02535d0fa33672e"/><section>
+    <title>cstr_pop_back()</title>
+<indexterm><primary>cstr_pop_back</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_pop_back</secondary></indexterm>
+<para><computeroutput>bool cstr_pop_back (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Remove last character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if character removed, false if empty </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ae96b1f1008f1cecbba6b033536cc8252"/><section>
+    <title>cstr_push_back_char()</title>
+<indexterm><primary>cstr_push_back_char</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_push_back_char</secondary></indexterm>
+<para><computeroutput>bool cstr_push_back_char (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ char chr)</computeroutput></para><para>
+
+<para>Append single ASCII character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>chr</entry><entry>
+<para>Character to append </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1af37d56f8b717289741cfc22f33f34f38"/><section>
+    <title>cstr_push_back_wchar()</title>
+<indexterm><primary>cstr_push_back_wchar</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_push_back_wchar</secondary></indexterm>
+<para><computeroutput>bool cstr_push_back_wchar (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ wchar_t chr)</computeroutput></para><para>
+
+<para>Append wide character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>chr</entry><entry>
+<para>Wide character to append </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Converts to multibyte using system code page </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a603f9501de51fab10c93116f20992431"/><section>
+    <title>cstr_resize()</title>
+<indexterm><primary>cstr_resize</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_resize</secondary></indexterm>
+<para><computeroutput>bool cstr_resize (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ size_t size)</computeroutput></para><para>
+
+<para>Resize internal buffer. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry>
+<para>New buffer size </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Does not modify string contents </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1aa8f1f21d34dc8ec950ada616d8a2775f"/><section>
+    <title>cstr_shrink_to_fit()</title>
+<indexterm><primary>cstr_shrink_to_fit</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_shrink_to_fit</secondary></indexterm>
+<para><computeroutput>bool cstr_shrink_to_fit (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Minimize buffer to fit current contents. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success, false on allocation failure </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1ab15a5efe4a0ba6486d243c3b0750c0ad"/><section>
+    <title>cstr_strdup()</title>
+<indexterm><primary>cstr_strdup</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_strdup</secondary></indexterm>
+<para><computeroutput>char * cstr_strdup (_In_ const char * str)</computeroutput></para><para>
+
+<para>Duplicate null-terminated C string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>Source string to copy </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>New allocated copy on success, NULL on failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Safe replacement for non-standard strdup() </para>
+</note>
+<warning><title>Warning</title>
+
+<para>Caller must free result with free() </para>
+</warning>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1afaf872d064289877d08e06ec976a5200"/><section>
+    <title>cstr_substring()</title>
+<indexterm><primary>cstr_substring</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_substring</secondary></indexterm>
+<para><computeroutput>bool cstr_substring (_In_ <link linkend="_struct_c_string">CString</link> * obj, _Inout_ <link linkend="_struct_c_string">CString</link> * dest, _In_ size_t start, _In_ size_t length)</computeroutput></para><para>
+
+<para>Extract substring. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Source <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>dest</entry><entry>
+<para>Destination <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>start</entry><entry>
+<para>Starting index </para>
+</entry>
+                            </row>
+                            <row>
+<entry>length</entry><entry>
+<para>Number of characters to extract </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Automatically clamps to valid range </para>
+</note>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a87d55a69f207f98bdec62eb93a353bd6"/><section>
+    <title>cstr_swap()</title>
+<indexterm><primary>cstr_swap</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_swap</secondary></indexterm>
+<para><computeroutput>bool cstr_swap (_In_ <link linkend="_struct_c_string">CString</link> * obj, _In_ <link linkend="_struct_c_string">CString</link> * obj2)</computeroutput></para><para>
+
+<para>Swap contents between two CStrings. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>First <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>obj2</entry><entry>
+<para>Second <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a317048239ee0c5973c514663333709f7"/><section>
+    <title>cstr_to_lower()</title>
+<indexterm><primary>cstr_to_lower</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_to_lower</secondary></indexterm>
+<para><computeroutput>bool cstr_to_lower (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Convert to lowercase. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a7f57e922204757c8ed5bc15a58a484cd"/><section>
+    <title>cstr_to_upper()</title>
+<indexterm><primary>cstr_to_upper</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_to_upper</secondary></indexterm>
+<para><computeroutput>bool cstr_to_upper (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Convert to uppercase. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true on success </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a095a6ae515f7b09a74e7949348acd629"/><section>
+    <title>cstr_tokenize()</title>
+<indexterm><primary>cstr_tokenize</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_tokenize</secondary></indexterm>
+<para><computeroutput>bool cstr_tokenize (_In_ <link linkend="_struct_c_string">CString</link> * obj, _Inout_ <link linkend="_struct_c_string">CString</link> * token, _In_ const char * delimiters, _Inout_ size_t * start_pos)</computeroutput></para><para>
+
+<para>Extract token using delimiters. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Source <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>token</entry><entry>
+<para>Output token </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delimiters</entry><entry>
+<para>Separator characters </para>
+</entry>
+                            </row>
+                            <row>
+<entry>start_pos</entry><entry>
+<para>Starting/ending position (updated) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if token found </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a7cc988ea3636cff3c49dbe5338a34a91"/><section>
+    <title>cstr_tokenize_ex()</title>
+<indexterm><primary>cstr_tokenize_ex</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_tokenize_ex</secondary></indexterm>
+<para><computeroutput>bool cstr_tokenize_ex (_In_ <link linkend="_struct_c_string">CString</link> * obj, _Inout_ <link linkend="_struct_c_string">CString</link> * token, _In_ const char * delimiters, _In_ const char * zone_pairs, _In_ const char * escape_chars, _Inout_ size_t * start_pos)</computeroutput></para><para>
+
+<para>Advanced tokenization with zones/escaping. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para>Source <link linkend="_struct_c_string">CString</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>token</entry><entry>
+<para>Output token </para>
+</entry>
+                            </row>
+                            <row>
+<entry>delimiters</entry><entry>
+<para>Separator characters </para>
+</entry>
+                            </row>
+                            <row>
+<entry>zone_pairs</entry><entry>
+<para>Zone delimiter pairs (e.g., &quot;\&quot;\&quot;&apos;&apos;&quot;) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>escape_chars</entry><entry>
+<para>Escape characters </para>
+</entry>
+                            </row>
+                            <row>
+<entry>start_pos</entry><entry>
+<para>Starting/ending position (updated) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if token found</para>
+</formalpara>
+<literallayout><computeroutput><emphasis role="keywordtype">size_t</emphasis>&#32;pos&#32;=&#32;0;
+<link linkend="_struct_c_string">CString</link>&#32;str,&#32;token;
+<link linkend="_cstr_8h_1a1931260675a1dd0478f1f6174274311d">cstr_create_from_chars</link>(&amp;str,&#32;<emphasis role="stringliteral">&quot;Hello,&#32;\&quot;my&#32;world\&quot;!&quot;</emphasis>);
+<emphasis role="keywordflow">while</emphasis>&#32;(<link linkend="_cstr_8h_1a7cc988ea3636cff3c49dbe5338a34a91">cstr_tokenize_ex</link>(&amp;str,&#32;&amp;token,&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;\&quot;\&quot;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;\\&quot;</emphasis>,&#32;&amp;pos))
+&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Token:&#32;%s\n&quot;</emphasis>,&#32;<link linkend="_cstr_8h_1ad87d4a55d6c5f123b6878cb7c119b81e">cstr_data</link>(&amp;token));
+</computeroutput></literallayout> </para>
+</section>
+<anchor xml:id="_cstr_8h_1ac596ebf8cd8a18b6ef37afb7a697ddbd"/><section>
+    <title>cstr_trim()</title>
+<indexterm><primary>cstr_trim</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_trim</secondary></indexterm>
+<para><computeroutput>bool cstr_trim (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Trim whitespace from both ends. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if modified, false otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_cstr_8h_1a9b2635827c1dbc41bb3f56afba5f52b8"/><section>
+    <title>cstr_unlock()</title>
+<indexterm><primary>cstr_unlock</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_unlock</secondary></indexterm>
+<para><computeroutput>void cstr_unlock (_In_ <link linkend="_struct_c_string">CString</link> * obj)</computeroutput></para><para>
+
+<para>Release exclusive access. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>obj</entry><entry>
+<para><link linkend="_struct_c_string">CString</link> object </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_cstr_8h_1a6bdfe2b2dc5cbf68ae01b0cf995b1260"/><section>
+    <title>cstr_wcsdup()</title>
+<indexterm><primary>cstr_wcsdup</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>cstr_wcsdup</secondary></indexterm>
+<para><computeroutput>wchar_t * cstr_wcsdup (_In_ const wchar_t * str)</computeroutput></para><para>
+
+<para>Duplicate null-terminated wide string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>str</entry><entry>
+<para>Source wide string to copy </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>New allocated copy on success, NULL on failure </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>Wide char version of <link linkend="_cstr_8h_1ab15a5efe4a0ba6486d243c3b0750c0ad">cstr_strdup()</link> </para>
+</note>
+<warning><title>Warning</title>
+
+<para>Caller must free result with free() </para>
+</warning>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_cstr_8h_1a806f153ea99a469ab7b8bf260df0ca8e"/><section>
+    <title>invalid</title>
+<indexterm><primary>invalid</primary><secondary>cstr.h</secondary></indexterm>
+<indexterm><primary>cstr.h</primary><secondary>invalid</secondary></indexterm>
+<para><computeroutput>const size_t invalid = (size_t)-1<computeroutput>[static]</computeroutput></computeroutput></para></section>
+</section>
+</section>
