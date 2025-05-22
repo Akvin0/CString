@@ -38,7 +38,7 @@ Thread-safe dynamic string implementation for C with Windows API integration
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/cstring.git
+git clone https://github.com/Akvin0/cstring.git
 ```
 2. Include the header in your project:
 ```c
