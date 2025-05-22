@@ -11,7 +11,6 @@ Thread-safe dynamic string implementation for C with Windows API integration
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Documentation](#-documentation)
-- [Contributing](#-contributing)
 - [License](#-license)
 
 ## 🌟 Features
@@ -88,23 +87,6 @@ Token: "my 'world!'"
 |📦 **XML** | Doxygen XML output | [docs/index.xml](docs/index.xml)
 |📖 **DocBook** | DocBook source | [docs/docbook.xml](docs/docbook.xml)
 |📝 **RTF** | Rich Text Format | [docs/index.rtf](docs/index.rtf)
-
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch:
-```bash
-git checkout -b feature/AmazingFeature
-```
-3. Commit your changes:
-```bash
-git commit -m 'Add some AmazingFeature'
-```
-4. Push to the branch:
-```bash
-git push origin feature/AmazingFeature
-```
-5. Open a Pull Request
 
 ## 📜 License 
 
