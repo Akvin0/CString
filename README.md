@@ -83,7 +83,7 @@ Token: "my 'world!'"
 
 |Type|File|Location|
 |----|----|--------|
-|🌐 **HTML** | Interactive web-version | [docs/html/index.html](docs/html/index.html) |
+|🌐 **HTML** | Interactive web-version | [click](https://akvin0.github.io/CString/) |
 |📄 **PDF** | Printable version | [docs/index.pdf](docs/index.pdf)
 |📦 **XML** | Doxygen XML output | [docs/index.xml](docs/index.xml)
 |📖 **DocBook** | DocBook source | [docs/docbook.xml](docs/docbook.xml)
