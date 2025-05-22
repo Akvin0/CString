@@ -11,7 +11,6 @@ Thread-safe dynamic string implementation for C with Windows API integration
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Documentation](#-documentation)
-- [Examples](#-examples)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -80,7 +79,7 @@ Token: Hello,
 Token: "my 'world!'"
 ```
 
-## Documentation
+## 📚 Documentation
 
 |Type|File|Location|
 |----|----|--------|
