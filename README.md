@@ -41,7 +41,7 @@ git clone https://github.com/Akvin0/cstring.git
 ```
 2. Include the header in your project:
 ```c
-#include "includes/cstr.h"
+#include "include/cstr.h"
 ```
 3. Link with Windows libraries (automatic in most cases)
 
